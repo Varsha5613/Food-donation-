@@ -1,0 +1,71 @@
+ <!DOCTYPE html>
+ <nav class="navbar navbar-dark bg-success">
+  <div class="container">
+    <span class="navbar-brand">🍱 Enjoy every meal with us !!</span>
+  </div>
+</nav>
+
+<html>
+<head>
+    <title>Save Food, enjoy every meal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Donate Extra Food</h2>
+
+    <form onsubmit="saveData(event)">
+        <div class="mb-3">
+            <label class="form-label">Donor Name</label>
+            <input type="text"  id="donor"  class="form-control" placeholder="Enter your name">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Location</label>
+            <input type="text" id="location" class="form-control" placeholder="Enter location">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Food Quantity</label>
+            <input type="text" id="quantity"   class="form-control" placeholder="e.g. 50 plates">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Contact Number</label>
+            <input type="text" id="contact"  class="form-control" placeholder="Enter phone number">
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Submit</button>
+    </form>
+</div>
+</html>
+<script>
+function saveData(event) {
+    event.preventDefault();
+
+    let donor = document.getElementById("donor").value;
+    let location = document.getElementById("location").value;
+    let quantity = document.getElementById("quantity").value;
+    let contact = document.getElementById("contact").value;
+
+    let data = {
+        donor: donor,
+        location: location,
+        quantity: quantity,
+        contact: contact
+    };
+
+    // Save to local storage
+    let donations = JSON.parse(localStorage.getItem("donations")) || [];
+    donations.push(data);
+    localStorage.setItem("donations", JSON.stringify(donations));
+
+    alert("Donation Added Successfully!");
+
+    window.location.href = "view.html";
+}
+</script>
+</body>

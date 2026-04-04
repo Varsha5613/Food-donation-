@@ -1,0 +1,10 @@
+body {
+    font-family: Arial;
+}
+
+h1, h2 {
+    color: #007808;
+}
+.card {
+    border: 10px;
+}
