@@ -1,4 +1,9 @@
 body {
+    background-image:url("");
+    background-repeat:n0-repeat;
+    background-size:cover;
+    height:100px;
+    wudth:100vw;
     font-family: Arial;
 }
 
